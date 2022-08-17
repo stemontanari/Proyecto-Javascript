@@ -19,10 +19,34 @@ function cargarEventListeners () {
 
     carrito.addEventListener('click', eliminarProducto)
 
+    document.addEventListener('DOMContentLoaded', () => {
+        carroDeCompras = JSON.parse (localStorage.getItem('carrito')) || [];
+
+        carritoHTML();
+    })
+
     vaciarCarritoBtn.addEventListener('click', () => {
         carroDeCompras = [];
 
         limpiarHTML();
+    })
+}
+
+// FUNCIONES
+const renderizarListaProductos = () => {
+    calzados.forEach((calzado) => {
+        const cardCalzados = document.createElement ('div')
+        cardCalzados.classList.add('cards')
+        cardCalzados.setAttribute('data-id', calzado.id)
+        cardCalzados.innerHTML = `
+            <img class="cardImagenes"  src="${calzado.image}" alt="">
+            <h4 class="cardTextos"> ${calzado.marca} ${calzado.modelo}</h4> 
+            <p class="cardTextos">$${calzado.precio}</p>
+            <div>
+                <button class="botonCarrito" data-id='${calzado.id}' >Agregar al carrito</button>
+            </div>
+        `
+        listaProductos.append (cardCalzados)
     })
 }
 
@@ -61,6 +85,7 @@ function leerDatosProductos (calzado){
     if (existeProducto) {
         const producto = carroDeCompras.find((producto) => producto.id === infoProducto.id)
         producto.cantidad += 1
+
     } else {
         carroDeCompras.push(infoProducto)
     }
@@ -88,7 +113,10 @@ function carritoHTML () {
 
         contenedorCarrito.appendChild(row);
     })
+
+    sincronizarStorage();
 }
+
 
 //Eliminar los productos del carrito
 
@@ -96,86 +124,10 @@ function limpiarHTML() {
     contenedorCarrito.innerHTML = '';
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// FUNCIONES
-const renderizarListaProductos = () => {
-    calzados.forEach((calzado) => {
-        const cardCalzados = document.createElement ('div')
-        cardCalzados.classList.add('cards')
-        cardCalzados.setAttribute('data-id', calzado.id)
-        cardCalzados.innerHTML = `
-            <img class="cardImagenes"  src="${calzado.image}" alt="">
-            <h4 class="cardTextos"> ${calzado.marca} ${calzado.modelo}</h4> 
-            <p class="cardTextos">$${calzado.precio}</p>
-            <div>
-                <button class="botonCarrito" data-id='${calzado.id}' >Agregar al carrito</button>
-            </div>
-        `
-        listaProductos.append (cardCalzados)
-    })
+function sincronizarStorage() {
+    localStorage.setItem('carrito', JSON.stringify(carroDeCompras));
 }
 
-
-
-renderizarListaProductos()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-const cardTextos = document.querySelector('.cardTextos')
-const cardImagenes = document.querySelector('.cardImagenes')
-
-const cardBotonCarrito = document.querySelector('.botonCarrito')
-
-
-
-
-    const agregarProductos = (e) => {
-        const calzadoId = e.target.getAttribute('data-id')
-        const calzadoSeleccionado = calzados.find((calzado) => calzado.id == calzadoId )
- 
-        console.log(calzadoSeleccionado);
-    }
- 
-//EJECUTAR
+// EJECUTAR
 
 renderizarListaProductos()
-*/
