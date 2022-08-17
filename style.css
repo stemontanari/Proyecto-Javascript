@@ -70,7 +70,7 @@ section{
 }
 .formatoCarrito{
     display: grid;
-    grid-template-columns: 20% 40% 20% 20%;
+    grid-template-columns: 20% 35% 20% 10% 15%;
     align-items: center;
     border-bottom: 2px black solid;
 }
@@ -78,6 +78,18 @@ section{
 .formatoCarrito div{
     display: flex;
     justify-content: center;
-    margin: 20px;
+    align-content: center;
+    margin: 10px;
 
+}
+
+.borrar-calzado{
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: rgb(216, 42, 42);
+    color: white;
+    text-decoration: none;
+    width: 25px;
+    height: 25px;
 }

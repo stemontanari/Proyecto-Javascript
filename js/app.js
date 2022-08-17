@@ -8,12 +8,22 @@ const calzados = [calzado1, calzado2, calzado3, calzado4, calzado5, calzado6]
 const carrito = document.querySelector('#carrito')
 const contenedorCarrito = document.querySelector ('#modal-body')
 const listaProductos = document.querySelector('#cardContainer')
-const vaciarCarritoBtn = document.querySelector('#vaciar-carrito')
+const vaciarCarritoBtn = document.querySelector('#vaciar')
+
 
 
 cargarEventListeners();
 function cargarEventListeners () {
+
     listaProductos.addEventListener('click', agregarProducto)
+
+    carrito.addEventListener('click', eliminarProducto)
+
+    vaciarCarritoBtn.addEventListener('click', () => {
+        carroDeCompras = [];
+
+        limpiarHTML();
+    })
 }
 
 
@@ -26,10 +36,19 @@ function agregarProducto(e) {
     }
 }
 
+function eliminarProducto (e) {
+    if(e.target.classList.contains('borrar-calzado')) {
+        const calzadoId = e.target.getAttribute('data-id')
+
+        carroDeCompras = carroDeCompras.filter ( calzado => calzado.id !== calzadoId);
+        
+        limpiarHTML();
+        carritoHTML();
+    }
+}
+
 // lee contenido del HTML y extrae info del producto
 function leerDatosProductos (calzado){
-    //console.log(calzado);
-
     const infoProducto = {
         imagen: calzado.querySelector('img').src,
         datos: calzado.querySelector('h4').textContent,
@@ -37,26 +56,34 @@ function leerDatosProductos (calzado){
         id: calzado.querySelector('button').getAttribute('data-id'),
         cantidad: 1
     }
+    //verificar si el producto existe en el carrito y sumar la cantidad y no repetetirlo
+    const existeProducto = carroDeCompras.some((producto) => producto.id === infoProducto.id)
+    if (existeProducto) {
+        const producto = carroDeCompras.find((producto) => producto.id === infoProducto.id)
+        producto.cantidad += 1
+    } else {
+        carroDeCompras.push(infoProducto)
+    }
     
-    carroDeCompras = [...carroDeCompras, infoProducto ];
-    
-    console.log(carroDeCompras);
-
+    limpiarHTML();
     carritoHTML();
 }
 
 function carritoHTML () {
     carroDeCompras.forEach ((calzado) => {
-        console.log(calzado);
+        const {imagen, datos, precio, cantidad, id} = calzado;
         const row = document.createElement ('div');
         row.classList.add('formatoCarrito')
         row.innerHTML = `
         <div>
-            <img src="${calzado.imagen}" width="100px" >
+            <img src="${imagen}" width="100px" >
         </div>
-        <div> ${calzado.datos} </div>
-        <div> ${calzado.precio}</div>
-        <div> ${calzado.cantidad}</div>
+        <div> ${datos} </div>
+        <div> ${precio}</div>
+        <div> ${cantidad}</div>
+        <div>
+            <a href="#" class="borrar-calzado" data-id="${id}" > X </a>
+        </div>
         `;
 
         contenedorCarrito.appendChild(row);
