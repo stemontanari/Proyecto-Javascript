@@ -2,15 +2,14 @@
 let carroDeCompras = [];
 
 // ARRAY de todos los calzados
-const calzados = [calzado1, calzado2, calzado3, calzado4, calzado5, calzado6]
+const calzados = [calzado1, calzado2, calzado3, calzado4, calzado5, calzado6, calzado7, calzado8, calzado9]
 
 // VARIABLES
 const carrito = document.querySelector('#carrito')
 const contenedorCarrito = document.querySelector ('#modal-body')
 const listaProductos = document.querySelector('#cardContainer')
 const vaciarCarritoBtn = document.querySelector('#vaciar')
-
-
+const finalizarCompra = document.querySelector('#finalizarCompra')
 
 cargarEventListeners();
 function cargarEventListeners () {
@@ -30,6 +29,29 @@ function cargarEventListeners () {
 
         limpiarHTML();
     })
+
+    finalizarCompra.addEventListener('click', () => {
+        Swal.fire(
+            'Compra exitosa!',
+            'Su compra fue registrada con exito!',
+            'success'
+          )
+    })
+    
+    listaProductos.addEventListener('click', () => {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1500,
+          })
+          Toast.fire({
+            icon: 'success',
+            title: 'Producto agregado al carrito con exito!'
+            
+          })
+    })
+    
 }
 
 // FUNCIONES
@@ -43,7 +65,7 @@ const renderizarListaProductos = () => {
             <h4 class="cardTextos"> ${calzado.marca} ${calzado.modelo}</h4> 
             <p class="cardTextos">$${calzado.precio}</p>
             <div>
-                <button class="botonCarrito" data-id='${calzado.id}' >Agregar al carrito</button>
+                <button class="agregarAlCarrito" data-id='${calzado.id}' >Agregar al carrito</button>
             </div>
         `
         listaProductos.append (cardCalzados)
@@ -53,7 +75,7 @@ const renderizarListaProductos = () => {
 
 function agregarProducto(e) {
     e.preventDefault();
-    if (e.target.classList.contains('botonCarrito') ) {
+    if (e.target.classList.contains('agregarAlCarrito') ) {
         const productoSeleccionado = e.target.parentElement.parentElement
 
         leerDatosProductos(productoSeleccionado);
@@ -84,7 +106,7 @@ function leerDatosProductos (calzado){
     const existeProducto = carroDeCompras.some((producto) => producto.id === infoProducto.id)
     if (existeProducto) {
         const producto = carroDeCompras.find((producto) => producto.id === infoProducto.id)
-        producto.cantidad += 1
+        producto.cantidad ++ 
 
     } else {
         carroDeCompras.push(infoProducto)

@@ -11,8 +11,19 @@ class Calzado {
 }
 
 const calzado1 = new Calzado('Nike', 'Jordan 1 Retro High OG "Rebellionaire"', 45000, 'https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-air-jordan-1-retro-high-og-rebellionaire-air-jordan-kikikickz-563016_800x.jpg?v=1647007535', '001')
+
 const calzado2 = new Calzado('Nike', 'Jordan 1 Mid "Diamond Shorts"', 35200, 'https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-air-jordan-1-mid-diamond-shorts-air-jordan-kikikickz-663663_800x.progressive.jpg?v=1644151019', '002')
+
 const calzado3 = new Calzado('Nike', 'Jordan 1 Retro High OG "Hyper Royal"', 37500, 'https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-air-jordan-1-retro-high-og-hyper-royal-air-jordan-kikikickz-741519_800x.progressive.jpg?v=1617108157', '003')
+
 const calzado4 = new Calzado('Nike', 'Air Jordan 1 Low "Cardinal Red"', 42500, 'https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-air-jordan-1-low-cardinal-red-air-jordan-kikikickz-319063_800x.jpg?v=1651667250', '004')
+
 const calzado5 = new Calzado('Nike', 'Jordan 1 Retro High "Tie Dye"', 56500, 'https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-jordan-1-retro-high-tie-dye-air-jordan-kikikickz-144831_800x.progressive.jpg?v=1617107621', '005')
+
 const calzado6 = new Calzado('Nike', 'Jordan 1 Mid "Barely Orange"', 72000, 'https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-air-jordan-1-mid-barely-orange-air-jordan-kikikickz-481549_800x.progressive.jpg?v=1617106994', '006')
+
+const calzado7 = new Calzado('Nike', 'Air Jordan 1 Mid "Onyx Curry"', 32800, 'https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-air-jordan-1-mid-onyx-curry-air-jordan-kikikickz-820675_800x.progressive.jpg?v=1644519888', '007')
+
+const calzado8 = new Calzado('Nike', 'Jordan 1 Low "Washed Denim"', 48000, 'https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-air-jordan-1-low-washed-denim-air-jordan-kikikickz-107428_800x.jpg?v=1649768156', '008')
+
+const calzado9 = new Calzado('Nike', 'Jordan 1 Low "Shadow Toe"', 63000, 'https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-air-jordan-1-low-shadow-toe-air-jordan-kikikickz-578904_800x.jpg?v=1649245166', '009')
