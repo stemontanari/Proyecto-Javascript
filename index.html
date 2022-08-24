@@ -12,13 +12,13 @@
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">CALZADOS</a>
+        <a class="navbar-brand" href="./index.html">CALZADOS</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-    
+
         <div class="collapse navbar-collapse" id="navbarColor01">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
@@ -30,10 +30,8 @@
             </li>
           </ul>
           <ul className="navbar-nav me-auto">  
-            <li className="nav-item " >
-                <a id="botonCarrito" data-bs-toggle="modal" data-bs-target="#idModal" class="btn btn-dark"><i class="fas fa-shopping-cart fa-1x"></i></a>
-            </li>
-        </ul>  
+            <a id="botonCarrito" data-bs-toggle="modal" data-bs-target="#idModal" class="btn btn-dark"><i class="fas fa-shopping-cart fa-1x"></i></a>
+          </ul>  
         </div>
       </div> 
     </nav>
@@ -62,7 +60,7 @@
               <!--aca irian los productos inyectados al carrito-->
           </div>
           <div class="row ml-ato">
-            <p id="precioTotal"></p>
+            <p id="precioTotal"> Suma total = <span id="total"></span> </p> 
           </div>
           <div class="modal-footer">
             

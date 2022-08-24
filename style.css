@@ -8,6 +8,18 @@ section{
     width: 100%;
 }
 
+#botonCarrito{
+    margin-top: 10px;
+    margin-right: 10px;
+    transition: all 0.5s ease;
+    position: relative;
+}
+
+#botonCarrito:hover {
+    background: #318aac;
+    color: #fff !important;
+    border: black 2px solid;
+}
 
 .navbar{
     background-color: #318aac;
@@ -99,6 +111,14 @@ section{
 
 #finalizarCompra{
     background-color: #318aac;
+}
+
+#precioTotal{
+    width: 500px;
+    margin-left: 20px;
+    color: black;
+    font-size: large;
+    font-weight: 500;
 }
 
 @media (min-width: 427px) and (max-width: 768px) {
