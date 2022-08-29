@@ -2,7 +2,7 @@
 let carroDeCompras = [];
 
 // ARRAY de todos los calzados
-const calzados = [calzado1, calzado2, calzado3, calzado4, calzado5, calzado6, calzado7, calzado8, calzado9];
+let calzados = [];
 
 // VARIABLES
 const carrito = document.querySelector('#carrito');
@@ -150,16 +150,36 @@ function sumaTotal () {
 sumaTotal ();
 
 
+/*const getAllCalzados = async () => {
+    const response = await fetch('../json/calzados.json')
+    const data = await response.json()
+    calzados = data
+    renderizarListaProductos(calzados)
+}
+*/
+
+fetch('../json/calzados.json')
+    .then((response) => response.json())
+    .then((data) => {
+        calzados = data
+        renderizarListaProductos(calzados)
+    })
+
+
+
+
 //Eliminar los productos del carrito
 function limpiarHTML() {
     contenedorCarrito.innerHTML = '';
 }
 
-//Storage
+
+// STORAGE
 function sincronizarStorage() {
     localStorage.setItem('carrito', JSON.stringify(carroDeCompras));
 }
 
 
 // EJECUTAR
-renderizarListaProductos()
+//getAllCalzados()
+

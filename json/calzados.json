@@ -1,0 +1,66 @@
+[
+    {
+        "marca": "Nike",
+        "modelo": "Jordan 1 Retro High OG \"Rebellionaire\"",
+        "precio": 45000,
+        "image": "https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-air-jordan-1-retro-high-og-rebellionaire-air-jordan-kikikickz-563016_800x.jpg?v=1647007535",
+        "id": 1
+    },
+    {
+        "marca": "Nike",
+        "modelo": "Jordan 1 Mid \"Diamond Shorts\"",
+        "precio": 35200,
+        "image": "https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-air-jordan-1-mid-diamond-shorts-air-jordan-kikikickz-663663_800x.progressive.jpg?v=1644151019",
+        "id": 2
+    },
+    {
+        "marca": "Nike",
+        "modelo": "Jordan 1 Retro High OG \"Hyper Royal\"",
+        "precio": 37500,
+        "image": "https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-air-jordan-1-retro-high-og-hyper-royal-air-jordan-kikikickz-741519_800x.progressive.jpg?v=1617108157",
+        "id": 3
+    },
+    {
+        "marca": "Nike",
+        "modelo": "Air Jordan 1 Low \"Cardinal Red\"",
+        "precio": 42500,
+        "image": "https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-air-jordan-1-low-cardinal-red-air-jordan-kikikickz-319063_800x.jpg?v=1651667250",
+        "id": 4
+    },
+    {
+        "marca": "Nike",
+        "modelo": "Jordan 1 Retro High \"Tie Dye\"",
+        "precio": 56500,
+        "image": "https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-jordan-1-retro-high-tie-dye-air-jordan-kikikickz-144831_800x.progressive.jpg?v=1617107621",
+        "id": 5
+    },
+    {
+        "marca": "Nike",
+        "modelo": "Jordan 1 Mid \"Barely Orange\"",
+        "precio": 72000,
+        "image": "https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-air-jordan-1-mid-barely-orange-air-jordan-kikikickz-481549_800x.progressive.jpg?v=1617106994",
+        "id": 6
+    },
+    {
+        "marca": "Nike",
+        "modelo": "Air Jordan 1 Mid \"Onyx Curry\"",
+        "precio": 32800,
+        "image": "https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-air-jordan-1-mid-onyx-curry-air-jordan-kikikickz-820675_800x.progressive.jpg?v=1644519888",
+        "id": 7
+    },
+    {
+        "marca": "Nike",
+        "modelo": "Jordan 1 Low \"Washed Denim\"",
+        "precio": 48000,
+        "image": "https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-air-jordan-1-low-washed-denim-air-jordan-kikikickz-107428_800x.jpg?v=1649768156",
+        "id": 8
+    },
+    {
+        "marca": "Nike",
+        "modelo": "Jordan 1 Low \"Shadow Toe\"",
+        "precio": 63000,
+        "image": "https://cdn.shopify.com/s/files/1/0496/4325/8009/products/baskets-air-jordan-1-low-shadow-toe-air-jordan-kikikickz-578904_800x.jpg?v=1649245166",
+        "id": 9
+    }
+]
+
