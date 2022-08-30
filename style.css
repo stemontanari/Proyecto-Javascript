@@ -103,6 +103,7 @@ section{
 .formatoCarrito div{
     display: flex;
     justify-content: center;
+    text-align: center;
     align-content: center;
     margin: 10px;
 
