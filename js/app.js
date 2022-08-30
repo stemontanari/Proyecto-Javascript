@@ -12,7 +12,6 @@ const vaciarCarritoBtn = document.querySelector('#vaciar');
 const finalizarCompra = document.querySelector('#finalizarCompra');
 const totalCompra = document.querySelector('#total');
 
-
 //LISTENERS 
 cargarEventListeners();
 
@@ -61,7 +60,7 @@ const renderizarListaProductos = () => {
     })
 }
 
-// agregar productos al carrito
+// Agregar productos al carrito
 function agregarProducto(e) {
     e.preventDefault();
     if (e.target.classList.contains('agregarAlCarrito') ) {
@@ -84,7 +83,7 @@ function agregarProducto(e) {
     
 }
 
-// eliminar productos del carrito
+// Eliminar productos del carrito
 function eliminarProducto (e) {
     if(e.target.classList.contains('borrar-calzado')) {
         const calzadoId = e.target.getAttribute('data-id')
@@ -96,7 +95,7 @@ function eliminarProducto (e) {
     }
 }
 
-// lee contenido del HTML y extrae info del producto
+// Lee contenido del HTML y extrae info del producto
 function leerDatosProductos (calzado){
     const infoProducto = {
         imagen: calzado.querySelector('img').src,
@@ -118,7 +117,7 @@ function leerDatosProductos (calzado){
     carritoHTML();
 }
 
-//Productos adentro del carrito
+// Productos adentro del carrito
 function carritoHTML () {
     carroDeCompras.forEach ((calzado) => {
         const {imagen, datos, precio, cantidad, id} = calzado;
@@ -142,44 +141,26 @@ function carritoHTML () {
     sincronizarStorage();
 }
 
-//Suma total del precio de los productos
-function sumaTotal () {
-    
-
-}
-sumaTotal ();
-
-
-/*const getAllCalzados = async () => {
-    const response = await fetch('../json/calzados.json')
+const getAllCalzados = async () => {
+    const response = await fetch ('/json/calzados.json')
     const data = await response.json()
     calzados = data
     renderizarListaProductos(calzados)
 }
-*/
 
-fetch('../json/calzados.json')
-    .then((response) => response.json())
-    .then((data) => {
-        calzados = data
-        renderizarListaProductos(calzados)
-    })
-
-
-
-
-//Eliminar los productos del carrito
+// Eliminar productos del carrito
 function limpiarHTML() {
     contenedorCarrito.innerHTML = '';
 }
-
 
 // STORAGE
 function sincronizarStorage() {
     localStorage.setItem('carrito', JSON.stringify(carroDeCompras));
 }
 
-
 // EJECUTAR
-//getAllCalzados()
+getAllCalzados()
 
+
+//AGREGAR UN BUSCADOR
+//SUMA TOTAL
