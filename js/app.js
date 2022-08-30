@@ -10,7 +10,6 @@ const contenedorCarrito = document.querySelector ('#modal-body');
 const listaProductos = document.querySelector('#cardContainer');
 const vaciarCarritoBtn = document.querySelector('#vaciar');
 const finalizarCompra = document.querySelector('#finalizarCompra');
-const totalCompra = document.querySelector('#total');
 
 //LISTENERS 
 cargarEventListeners();
@@ -39,6 +38,7 @@ function cargarEventListeners () {
             'Su compra fue registrada con exito!',
             'success'
         )
+    limpiarHTML();
     })
 }
 
@@ -50,13 +50,14 @@ const renderizarListaProductos = () => {
         cardCalzados.setAttribute('data-id', calzado.id)
         cardCalzados.innerHTML = `
             <img class="cardImagenes"  src="${calzado.image}" alt="">
-            <h4 class="cardTextos"> ${calzado.marca} ${calzado.modelo}</h4> 
-            <p class="cardTextos">$${calzado.precio}</p>
+            <h4 class="cardMarca"> ${calzado.marca}</h4> 
+            <h4 class="cardModelo"> ${calzado.modelo}</h4> 
+            <p class="cardPrecio">$${calzado.precio}</p>
             <div>
-                <button id="botonazi" class="agregarAlCarrito" data-id='${calzado.id}' >Agregar al carrito</button>
+                <button class="agregarAlCarrito" data-id='${calzado.id}' >Agregar al carrito</button>
             </div>
         `
-        listaProductos.append (cardCalzados)
+        listaProductos.append (cardCalzados) 
     })
 }
 
@@ -80,7 +81,6 @@ function agregarProducto(e) {
             title: 'Producto agregado al carrito con exito!'
         })
     }
-    
 }
 
 // Eliminar productos del carrito
@@ -142,7 +142,7 @@ function carritoHTML () {
 }
 
 const getAllCalzados = async () => {
-    const response = await fetch ('/json/calzados.json')
+    const response = await fetch ('../json/calzados.json')
     const data = await response.json()
     calzados = data
     renderizarListaProductos(calzados)
@@ -160,7 +160,3 @@ function sincronizarStorage() {
 
 // EJECUTAR
 getAllCalzados()
-
-
-//AGREGAR UN BUSCADOR
-//SUMA TOTAL
