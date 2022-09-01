@@ -32,6 +32,7 @@ const cargarEventListeners = () => {
     })
 
     finalizarCompra.addEventListener('click', () => {
+        carroDeCompras = [];
         Swal.fire(
             'Compra exitosa!',
             'Su compra fue registrada con exito!',
@@ -61,6 +62,12 @@ const renderizarListaProductos = (array) => {
         `
         listaProductos.append (cardCalzados) 
     })
+}
+
+const buscarCalzado = () => {
+    const query = searchBar.value.toLowerCase()
+    const arrayResultados = calzados.filter((calzado) => calzado.modelo.toLowerCase().includes(query))
+    renderizarListaProductos(arrayResultados);
 }
 
 const agregarProducto = (e) => {
@@ -116,12 +123,6 @@ const leerDatosProductos = (calzado) =>{
     carritoHTML();
 }
 
-const buscarCalzado = () => {
-    const query = searchBar.value.toLowerCase()
-    const arrayResultados = calzados.filter((calzado) => calzado.modelo.toLowerCase().includes(query))
-    renderizarListaProductos(arrayResultados);
-}
-
 const carritoHTML = () => {
     carroDeCompras.forEach ((calzado) => {
         const {imagen, dato, precio, cantidad, id} = calzado;
@@ -163,5 +164,5 @@ const sincronizarStorage = () => {
 }
 
 // EJECUTAR
-getAllCalzados();
 cargarEventListeners();
+getAllCalzados();
