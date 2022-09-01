@@ -10,9 +10,10 @@ const contenedorCarrito = document.querySelector ('#modal-body');
 const listaProductos = document.querySelector('#cardContainer');
 const vaciarCarritoBtn = document.querySelector('#vaciar');
 const finalizarCompra = document.querySelector('#finalizarCompra');
+const searchBar = document.querySelector('#searchBar')
+const searchButton = document.querySelector('#searchButton')
 
 //LISTENERS 
-
 const cargarEventListeners = () => {
     listaProductos.addEventListener('click', agregarProducto)
 
@@ -38,11 +39,14 @@ const cargarEventListeners = () => {
         )
     limpiarHTML();
     })
+
+    searchButton.addEventListener('click', buscarCalzado)
 }
 
 // FUNCIONES
-const renderizarListaProductos = () => {
-    calzados.forEach((calzado) => {
+const renderizarListaProductos = (array) => {
+    listaProductos.innerHTML = ''
+    array.forEach((calzado) => {
         const cardCalzados = document.createElement ('div')
         cardCalzados.classList.add('cards')
         cardCalzados.setAttribute('data-id', calzado.id)
@@ -112,6 +116,12 @@ const leerDatosProductos = (calzado) =>{
     carritoHTML();
 }
 
+const buscarCalzado = () => {
+    const query = searchBar.value.toLowerCase()
+    const arrayResultados = calzados.filter((calzado) => calzado.modelo.toLowerCase().includes(query))
+    renderizarListaProductos(arrayResultados);
+}
+
 const carritoHTML = () => {
     carroDeCompras.forEach ((calzado) => {
         const {imagen, dato, precio, cantidad, id} = calzado;
@@ -139,17 +149,17 @@ const limpiarHTML = () => {
     contenedorCarrito.innerHTML = '';
 }
 
-// STORAGE
-const sincronizarStorage = () => {
-    localStorage.setItem('carrito', JSON.stringify(carroDeCompras));
-}
-
 // FETCH
 const getAllCalzados = async () => {
     const response = await fetch ('../json/calzados.json')
     const data = await response.json()
     calzados = data
     renderizarListaProductos(calzados)
+}
+
+// STORAGE
+const sincronizarStorage = () => {
+    localStorage.setItem('carrito', JSON.stringify(carroDeCompras));
 }
 
 // EJECUTAR
